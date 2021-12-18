@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+
+	<display-name>TeacherExam</display-name>
+	<welcome-file-list>
+		<welcome-file>Index.html</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>JDBC</param-name>
+		<param-value>mysql</param-value>
+	</context-param>
+	<context-param>
+		<param-name>LoginURI</param-name>
+		<param-value>Login</param-value>
+	</context-param>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/errorException.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/errorException.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/errorException.jsp</location>
+	</error-page>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/ErrorPageHandler</location>
+	</error-page>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<servlet>
+		<servlet-name>BarcodeServlet</servlet-name>
+		<servlet-class>net.sourceforge.barbecue.BarcodeServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BarcodeServlet</servlet-name>
+		<url-pattern>/barcode</url-pattern>
+	</servlet-mapping>
+</web-app>
