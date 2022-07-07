@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context docBase="teacherexam">
+	<!-- qx 可對這個應用程式限制可瀏覽的範圍, 正式上線時應註解掉 -->
+	<!-- <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="127.0.0.1" 
+		deny="" /> -->
+	<Resource name="mysql" auth="Container" type="javax.sql.DataSource"
+		maxActive="50" maxIdle="50" maxWait="100" username="root" password="DBPASSWORD"
+		driverClassName="com.mysql.jdbc.Driver" removeAbandoned="true"
+		removeAbandonedTimeout="60" logAbandoned="true"
+		url="jdbc:mysql://127.0.0.1:3306/teacherexam?useUnicode=true&amp;characterEncoding=UTF-8" />
+</Context>
